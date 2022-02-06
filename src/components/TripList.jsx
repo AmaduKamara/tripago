@@ -3,7 +3,7 @@ import { useFetch } from "../hooks/useFetch";
 
 const TripList = () => {
   const [url, setUrl] = useState("http://localhost:3000/trips");
-  const { data: trips, isPending, error } = useFetch(url);
+  const { data: trips, isPending, error } = useFetch(url, { type: "GET" });
 
   console.log(trips);
 
@@ -16,14 +16,14 @@ const TripList = () => {
           <h2 className="text-4xl font-semibold text-center">Trip List</h2>
           <div className="flex">
             <button
-            type="button"
+              type="button"
               onClick={() => setUrl("http://localhost:3000/trips?loc=europe")}
               className="py-4 px-160 border shadow-md px-5 mr-5"
             >
               Europe Trips
             </button>
             <button
-            type="button"
+              type="button"
               onClick={() => setUrl("http://localhost:3000/trips")}
               className="py-4 px-160 border shadow-md px-5"
             >
