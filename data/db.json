@@ -1,8 +1,8 @@
 {
   "trips": [
-    { "title": "2 weeks stay in Georgia", "price": "$3000" },
-    { "title": "3 night stay in Paris", "price": "$1000" },
-    { "title": "4 night stay in London", "price": "$1200" },
-    { "title": "3 night stay in New York", "price": "$2000" }
+    { "id": "1", "title": "2 weeks stay in Georgia", "price": "$3000" },
+    { "id": "2", "title": "3 night stay in Paris", "price": "$1000" },
+    { "id": "3", "title": "4 night stay in London", "price": "$1200" },
+    { "id": "4", "title": "3 night stay in New York", "price": "$2000" }
   ]
 }
