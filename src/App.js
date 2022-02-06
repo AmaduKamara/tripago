@@ -6,7 +6,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <TripList />
+      <div className="flex justify-center">
+        <TripList />
+      </div>
     </div>
   );
 }
