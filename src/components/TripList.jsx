@@ -1,18 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState } from "react";
+import { useFetch } from "../hooks/useFetch";
 
 const TripList = () => {
-  const [trips, setTrips] = useState([]);
   const [url, setUrl] = useState("http://localhost:3000/trips");
-
-  const fetchTrips = useCallback(async () => {
-    const response = await fetch(url);
-    const json = await response.json();
-    setTrips(json);
-  }, [url]);
-
-  useEffect(() => {
-    fetchTrips();
-  }, [fetchTrips]);
+  const { data: trips } = useFetch(url);
 
   console.log(trips);
 
