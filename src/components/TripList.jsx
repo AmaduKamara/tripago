@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 
 const TripList = () => {
-  const [url, setUrl] = useState("http://localhost:3000/trips");
-  const { data: trips, isPending } = useFetch(url);
+  const [url, setUrl] = useState("http://localhost:3000/tripsam");
+  const { data: trips, isPending, error } = useFetch(url);
 
   console.log(trips);
 
@@ -29,6 +29,11 @@ const TripList = () => {
             </button>
           </div>
         </div>
+        {error && (
+          <div className="text-center py-6 text-2xl">
+            <h2 className="text-gray-400 mt-4">{error}</h2>
+          </div>
+        )}
         {isPending && (
           <div className="text-center py-6 text-2xl">
             <img src={spinner} alt="loading spinner..." />
