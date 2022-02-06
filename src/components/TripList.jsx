@@ -2,19 +2,36 @@ import React, { useState, useEffect } from "react";
 
 const TripList = () => {
   const [trips, setTrips] = useState([]);
-
-  console.log(trips);
+  const [url, setUrl] = useState("http://localhost:3000/trips");
 
   useEffect(() => {
-    fetch("http://localhost:3000/trips")
+    fetch(url)
       .then((response) => response.json())
       .then((json) => setTrips(json));
-  }, []);
+  }, [url]);
+
+  console.log(trips);
 
   return (
     <div className="w-1/2 text-left mb-16 flex items-center justify-center">
       <div className="w-full">
-        <h2 className="text-4xl font-semibold text-center">Trip List</h2>
+        <div className="flex justify-between items-center">
+          <h2 className="text-4xl font-semibold text-center">Trip List</h2>
+          <div className="flex">
+            <button
+              onClick={() => setUrl("http://localhost:3000/trips?loc=europe")}
+              className="py-4 px-160 border shadow-md px-5 mr-5"
+            >
+              Europe Trips
+            </button>
+            <button
+              onClick={() => setUrl("http://localhost:3000/trips")}
+              className="py-4 px-160 border shadow-md px-5"
+            >
+              All Trips
+            </button>
+          </div>
+        </div>
         <ul className="mt-10">
           {trips &&
             trips.map((trip) => (
