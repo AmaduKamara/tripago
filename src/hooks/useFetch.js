@@ -11,7 +11,7 @@ export const useFetch = (url) => {
 
       try {
         const res = await fetch(url);
-
+        // Check if res is not ok and pass an error
         if (!res.ok) {
           throw new Error(res.statusText);
         } else {
@@ -25,6 +25,9 @@ export const useFetch = (url) => {
         setError("Could not fetch the data");
         console.log(err.message);
       }
+
+      
+
     };
 
     fetchData();
