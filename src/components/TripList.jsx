@@ -3,9 +3,11 @@ import { useFetch } from "../hooks/useFetch";
 
 const TripList = () => {
   const [url, setUrl] = useState("http://localhost:3000/trips");
-  const { data: trips } = useFetch(url);
+  const { data: trips, isPending } = useFetch(url);
 
   console.log(trips);
+
+  const spinner = "./spinner-icon-gif-10.gif";
 
   return (
     <div className="w-1/2 text-left mb-16 flex items-center justify-center">
@@ -27,6 +29,11 @@ const TripList = () => {
             </button>
           </div>
         </div>
+        {isPending && (
+          <div className="text-center py-6 text-2xl">
+            <img src={spinner} alt="loading spinner..." />
+          </div>
+        )}
         <ul className="mt-10">
           {trips &&
             trips.map((trip) => (
