@@ -13,7 +13,7 @@ function App() {
       <button
         onClick={() => setShowTrips(false)}
         type="button"
-        className="text-sky-400"
+        className="text-sky-400 focus:outline-none"
       >
         Hide Trips
       </button>
